@@ -1,0 +1,412 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Learning - AI Learning Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+      color: white;
+      scroll-behavior: smooth;
+    }
+    body, p, li, h1, h2, h3, h4, h5, h6{
+      color: white !important;
+    }
+    header{
+      padding: 80px 20px;
+      text-align:center;
+      background: rgba(0,0,0,0.6);
+      border-bottom: 3px solid #ffc107;
+    }
+    header h1{ font-size: 3rem; animation: fadeInDown 1s; }
+    header p{ font-size: 1.3rem; animation: fadeInUp 1s; margin-bottom: 20px; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.9);
+      padding: 10px;
+      z-index: 1000;
+    }
+    nav a{
+      margin: 0 15px;
+      color: #ffc107;
+      text-decoration: none;
+      font-weight:500;
+    }
+    nav a:hover{ color:#00ffea; text-decoration: underline; }
+
+    section{ padding: 60px 20px; }
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+      font-size:2.2rem;
+      color:#00ffea;
+      font-weight:bold;
+    }
+    .card{
+      background: rgba(255,255,255,0.05);
+      border:none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover{ transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,255,234,0.5); }
+
+    pre {
+      background: rgba(0,0,0,0.7);
+      color: #00ffea;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    table thead { background: #00ffea; color: black !important; }
+    table tbody tr:hover { background: rgba(0,255,234,0.2); }
+
+    footer{
+      background-color:#111;
+      color:#ffc107;
+      padding:20px 0;
+      text-align:center;
+    }
+    footer a { color:#00ffea; margin:0 10px; }
+    footer a:hover{ color:#ffc107; }
+
+    @keyframes fadeInDown{ from {opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
+    @keyframes fadeInUp{ from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
+    .animated-card{ animation: fadeInUp 1s; }
+    .back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #0d6efd, #6610f2);
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1100;
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #6610f2, #0d6efd);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.back-btn:active {
+  transform: scale(0.95);
+}
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="nav" data-bs-offset="70">
+
+<!-- Header -->
+<header>
+ <a href="/"><button class="back-btn" onclick="history.back()">⬅ Back</button></a>
+    
+  <h1>Deep Learning</h1>
+  <p>From basics to advanced concepts of Deep Learning — all in one page 📘</p>
+  <nav>
+    <a href="#intro">Introduction</a>
+    <a href="#concepts">Key Concepts</a>
+    <a href="#compare">DL vs ML</a>
+    <a href="#arch">Architectures</a>
+    <a href="#apps">Applications</a>
+    <a href="#adv">Advantages</a>
+    <a href="#challenges">Challenges</a>
+    <a href="#future">Future Trends</a>
+    <a href="#graph">Graph</a>
+    <a href="#code">Example</a>
+  </nav>
+</header>
+
+<!-- Introduction -->
+<section id="intro">
+  <h2 class="section-title">📌 Introduction</h2>
+  <div class="container">
+    <div class="card p-4 shadow-sm">
+      <p>Deep Learning (DL) is a subfield of <b>Machine Learning</b> that uses <b>artificial neural networks</b> with multiple layers to learn complex patterns in data.</p>
+      <p>It powers modern AI applications like <b>self-driving cars, chatbots, image recognition, speech translation, and medical diagnosis systems</b>.</p>
+      <p>DL mimics how the human brain works by connecting neurons and passing signals forward and backward until the system learns optimal solutions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Key Concepts -->
+<section id="concepts" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title">🧠 Key Concepts in Deep Learning</h2>
+  <div class="container row g-4">
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>Neural Networks</h5><p>Layers of neurons that process input and generate output.</p></div></div>
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>Activation Functions</h5><p>Functions like ReLU, Sigmoid, Tanh bring non-linearity.</p></div></div>
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>Backpropagation</h5><p>Optimization algorithm to adjust weights via gradients.</p></div></div>
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>Loss Functions</h5><p>Measure prediction error (MSE, Cross-Entropy).</p></div></div>
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>Optimizers</h5><p>Techniques like SGD, Adam to minimize errors.</p></div></div>
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>Regularization</h5><p>Dropout, L1/L2 to avoid overfitting.</p></div></div>
+  </div>
+</section>
+
+<!-- DL vs ML -->
+<section id="compare">
+  <h2 class="section-title">⚖️ Deep Learning vs Machine Learning</h2>
+  <div class="container">
+    <table class="table table-bordered text-white">
+      <thead><tr><th>Machine Learning</th><th>Deep Learning</th></tr></thead>
+      <tbody>
+        <tr><td>Needs manual feature extraction</td><td>Auto feature extraction</td></tr>
+        <tr><td>Works on small datasets</td><td>Needs large datasets</td></tr>
+        <tr><td>Less computing power</td><td>High GPU requirements</td></tr>
+        <tr><td>Examples: SVM, Trees</td><td>Examples: CNN, RNN, Transformers</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Architectures -->
+<section id="arch" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title">🏗️ Deep Learning Architectures</h2>
+  <div class="container">
+    <ul>
+      <li><b>FNNs</b> – simple forward networks</li>
+      <li><b>CNNs</b> – best for images</li>
+      <li><b>RNNs</b> – good for sequences</li>
+      <li><b>LSTM</b> – handles long-term dependencies</li>
+      <li><b>GANs</b> – generates synthetic data</li>
+      <li><b>Transformers</b> – used in ChatGPT, BERT</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Applications -->
+<section id="apps">
+  <h2 class="section-title">🌍 Applications of Deep Learning</h2>
+  <div class="container row g-4">
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>🚗 Self-Driving Cars</h5></div></div>
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>📸 Computer Vision</h5></div></div>
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>🗣️ Speech Recognition</h5></div></div>
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>💬 NLP</h5></div></div>
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>🏥 Healthcare</h5></div></div>
+    <div class="col-md-4 animated-card"><div class="card p-3 shadow-sm"><h5>🎨 AI Art</h5></div></div>
+  </div>
+</section>
+
+<!-- Advantages -->
+<section id="adv">
+  <h2 class="section-title">✅ Advantages of Deep Learning</h2>
+  <div class="container">
+    <ul>
+      <li>Automatically extracts features from raw data</li>
+      <li>Achieves high accuracy on complex tasks</li>
+      <li>Excellent at handling unstructured data (images, audio, text)</li>
+      <li>Powers modern AI systems like ChatGPT, Google Translate</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Challenges -->
+<section id="challenges" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title">⚠️ Challenges in Deep Learning</h2>
+  <div class="container">
+    <ul>
+      <li>Requires very large datasets</li>
+      <li>High computational power (GPUs/TPUs)</li>
+      <li>Expensive and energy-consuming</li>
+      <li>Hard to interpret (Black-box problem)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Future -->
+<section id="future">
+  <h2 class="section-title">🚀 Future of Deep Learning</h2>
+  <div class="container">
+    <p>Deep Learning is expected to revolutionize industries like healthcare, finance, robotics, and space exploration. With the rise of <b>quantum computing</b> and <b>explainable AI</b>, DL will become faster, more efficient, and more transparent in the future.</p>
+  </div>
+</section>
+
+<!-- Graph -->
+<section id="graph" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title">📊 Deep Learning Growth Over Time</h2>
+  <div class="container">
+    <canvas id="dlChart"></canvas>
+  </div>
+</section>
+
+<!-- Example Code -->
+<section id="code">
+  <h2 class="section-title">💻 Example: Training a Neural Network</h2>
+  <div class="container">
+    <div class="card p-4 shadow-sm">
+      <pre><code>
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+# Build a simple neural network
+model = Sequential([
+    Dense(16, activation='relu', input_shape=(10,)),
+    Dense(8, activation='relu'),
+    Dense(1, activation='sigmoid')
+])
+
+# Compile model
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# Train model
+# X_train, y_train = your dataset
+# model.fit(X_train, y_train, epochs=10, batch_size=32)
+      </code></pre>
+    </div>
+  </div>
+</section>
+
+
+<section id="quiz" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title"><i class="fas fa-question-circle icon"></i> Deep Learning Quiz</h2>
+  <div class="container">
+    <div id="quiz-container" class="card p-4 shadow-sm">
+      <div id="question" class="mb-4"></div>
+      <div id="options" class="list-group mb-3"></div>
+      <button id="next-btn" class="btn btn-warning w-100" disabled>Next</button>
+      <p class="mt-3 text-info" id="feedback"></p>
+      <p class="mt-3"><strong>Score: <span id="score">0</span></strong></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 AI Learning Platform | Built with ❤️ using Django & Bootstrap</p>
+  <div>
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+</footer>
+
+<script>
+
+
+const quizData = [
+    {question: "Which neural network is best for image processing?", options: ["CNN", "RNN", "GAN", "LSTM"], answer: "CNN"},
+    {question: "What does CNN stand for?", options: ["Convolutional Neural Network", "Central Neural Network", "Cluster Node Network", "Constrained Neural Net"], answer: "Convolutional Neural Network"},
+    {question: "Which DL model is best for sequential data?", options: ["RNN", "CNN", "GAN", "Autoencoder"], answer: "RNN"},
+    {question: "What is the vanishing gradient problem?", options: ["Gradients shrink in deep layers", "Gradients explode", "No learning happens", "Loss increases"], answer: "Gradients shrink in deep layers"},
+    {question: "Which function introduces non-linearity?", options: ["Activation Function", "Loss Function", "Optimizer", "Batch Norm"], answer: "Activation Function"},
+    {question: "What does ReLU stand for?", options: ["Rectified Linear Unit", "Regularized Linear Update", "Recursive Learning Unit", "Random Linear Unit"], answer: "Rectified Linear Unit"},
+    {question: "Which optimizer adapts learning rates per parameter?", options: ["Adam", "SGD", "Momentum", "Batch GD"], answer: "Adam"},
+    {question: "What is dropout used for?", options: ["Prevent Overfitting", "Speed Up Training", "Increase Neurons", "Activation"], answer: "Prevent Overfitting"},
+    {question: "Which layer reduces spatial dimensions?", options: ["Pooling Layer", "Dense Layer", "Convolution Layer", "Batch Norm"], answer: "Pooling Layer"},
+    {question: "Which DL model generates synthetic data?", options: ["GAN", "CNN", "RNN", "Transformer"], answer: "GAN"},
+    {question: "What does GAN stand for?", options: ["Generative Adversarial Network", "General AI Network", "Gradient Activation Net", "Global Artificial Net"], answer: "Generative Adversarial Network"},
+    {question: "Which network handles long-term dependencies?", options: ["LSTM", "CNN", "Autoencoder", "SVM"], answer: "LSTM"},
+    {question: "What does LSTM stand for?", options: ["Long Short-Term Memory", "Large Sample Training Model", "Linear Sequential Time Machine", "Low Scale Training"], answer: "Long Short-Term Memory"},
+    {question: "Which DL model powers ChatGPT?", options: ["Transformer", "CNN", "GAN", "LSTM"], answer: "Transformer"},
+    {question: "Which loss function is used for classification?", options: ["Cross-Entropy", "MSE", "MAE", "Hinge Loss"], answer: "Cross-Entropy"},
+    {question: "Which framework is widely used for DL?", options: ["TensorFlow", "Django", "Flask", "Bootstrap"], answer: "TensorFlow"},
+    {question: "What is backpropagation used for?", options: ["Update Weights", "Extract Features", "Reduce Layers", "Batch Normalization"], answer: "Update Weights"},
+    {question: "Which DL model compresses and reconstructs data?", options: ["Autoencoder", "CNN", "RNN", "GAN"], answer: "Autoencoder"},
+    {question: "What is batch normalization used for?", options: ["Stabilize Training", "Reduce Layers", "Drop Neurons", "Improve Pooling"], answer: "Stabilize Training"},
+    {question: "Which activation function is most common?", options: ["ReLU", "Sigmoid", "Tanh", "Softmax"], answer: "ReLU"},
+    {question: "Which DL model is useful for translation?", options: ["Transformer", "GAN", "CNN", "Autoencoder"], answer: "Transformer"},
+    {question: "What does NLP stand for?", options: ["Natural Language Processing", "Neural Layer Prediction", "Numeric Learning Process", "Non-linear Programming"], answer: "Natural Language Processing"},
+    {question: "Which problem occurs when gradients become too large?", options: ["Exploding Gradient", "Vanishing Gradient", "Overfitting", "Dropout"], answer: "Exploding Gradient"},
+    {question: "Which concept allows models to reuse learned knowledge?", options: ["Transfer Learning", "Batch Norm", "Regularization", "Pooling"], answer: "Transfer Learning"},
+    {question: "Which layer connects all neurons?", options: ["Fully Connected (Dense)", "Convolution", "Pooling", "Dropout"], answer: "Fully Connected (Dense)"},
+    {question: "Which DL model is often used for time series?", options: ["RNN/LSTM", "CNN", "GAN", "Autoencoder"], answer: "RNN/LSTM"},
+    {question: "What is an epoch in DL?", options: ["One full pass over dataset", "One batch of training", "One hidden layer", "One optimizer step"], answer: "One full pass over dataset"},
+    {question: "Which optimizer uses momentum?", options: ["SGD with Momentum", "Adam", "RMSProp", "Batch GD"], answer: "SGD with Momentum"},
+    {question: "Which DL architecture inspired by brain attention?", options: ["Transformer", "GAN", "CNN", "Autoencoder"], answer: "Transformer"},
+    {question: "Which hardware accelerates DL training?", options: ["GPU/TPU", "CPU", "RAM", "Cache"], answer: "GPU/TPU"}
+  ];
+
+  let currentQuestion = 0;
+  let score = 0;
+
+  const questionEl = document.getElementById("question");
+  const optionsEl = document.getElementById("options");
+  const nextBtn = document.getElementById("next-btn");
+  const scoreEl = document.getElementById("score");
+  const feedbackEl = document.getElementById("feedback");
+
+  function loadQuestion() {
+    const q = quizData[currentQuestion];
+    questionEl.innerHTML = `<h5>${q.question}</h5>`;
+    optionsEl.innerHTML = "";
+    feedbackEl.innerHTML = "";
+    q.options.forEach(option => {
+      const btn = document.createElement("button");
+      btn.className = "list-group-item list-group-item-action bg-dark text-white";
+      btn.textContent = option;
+      btn.onclick = () => selectAnswer(btn, q.answer);
+      optionsEl.appendChild(btn);
+    });
+    nextBtn.disabled = true;
+  }
+
+  function selectAnswer(btn, correctAnswer) {
+    const allBtns = optionsEl.querySelectorAll("button");
+    allBtns.forEach(b => b.disabled = true);
+    if (btn.textContent === correctAnswer) {
+      btn.classList.add("list-group-item-success");
+      feedbackEl.innerHTML = "✅ Correct!";
+      score++;
+      scoreEl.textContent = score;
+    } else {
+      btn.classList.add("list-group-item-danger");
+      feedbackEl.innerHTML = "❌ Wrong! Correct answer: " + correctAnswer;
+    }
+    nextBtn.disabled = false;
+  }
+
+  nextBtn.onclick = () => {
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+      loadQuestion();
+    } else {
+      questionEl.innerHTML = "<h5>🎉 Quiz Completed!</h5>";
+      optionsEl.innerHTML = "";
+      feedbackEl.innerHTML = "Your final score is " + score + "/" + quizData.length;
+      nextBtn.style.display = "none";
+    }
+  };
+
+  // Load first question
+  loadQuestion();
+
+  const ctx = document.getElementById('dlChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['2010','2013','2016','2019','2022','2025'],
+      datasets: [{
+        label: 'Deep Learning Research Papers',
+        data: [500, 2000, 7000, 20000, 50000, 120000],
+        borderColor: '#00ffea',
+        backgroundColor: 'rgba(0,255,234,0.2)',
+        borderWidth: 3,
+        fill: true,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { color: 'white' } } },
+      scales: { x: { ticks: { color: 'white' } }, y: { ticks: { color: 'white' } } }
+    }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

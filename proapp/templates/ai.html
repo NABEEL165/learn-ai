@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Learning Notes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #0f2027;  /* dark AI-themed gradient */
+      background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+      color: white;
+      scroll-behavior: smooth;
+    }
+    /* Text Color Fixes */
+body, p, li, h1, h2, h3, h4, h5, h6{
+  color: white !important;
+}
+
+.table thead {
+  background-color: rgba(255,255,255,0.1) !important; /* darken table header */
+}
+
+.table tbody tr {
+  background-color: rgba(255,255,255,0.05) !important; /* dark rows */
+}
+
+.accordion-button {
+  background-color: rgba(0,0,0,0.3) !important; /* keep accordion dark */
+  color: rgb(17, 16, 16) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+    header {
+      padding: 80px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      border-bottom: 3px solid #ffc107;
+    }
+    header h1 {
+      font-size: 3rem;
+      animation: fadeInDown 1s;
+    }
+    header p {
+      font-size: 1.3rem;
+      animation: fadeInUp 1s;
+      margin-bottom: 20px;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #ffc107;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+      color: #00ffea;
+    }
+    section {
+      padding: 60px 20px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.2rem;
+      color: #00ffea;
+      font-weight: bold;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,255,234,0.5);
+    }
+    .icon {
+      font-size: 1.8rem;
+      color: #ffc107;
+      margin-right: 10px;
+    }
+    footer {
+      background-color: #111;
+      color: #ffc107;
+      padding: 20px 0;
+      text-align: center;
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      font-size: 1.5rem;
+      background-color: #00ffea;
+      color: #111;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #backToTop:hover {
+      background-color: #ffc107;
+      color: #111;
+    }
+    .faq .accordion-button {
+      background: rgba(0,0,0,0.3);
+      color: #fff;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #0d6efd, #6610f2);
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1100;
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #6610f2, #0d6efd);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.back-btn:active {
+  transform: scale(0.95);
+}
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <a href="/"><button class="back-btn" onclick="history.back()">⬅ Back</button></a>
+
+  <h1>Artificial Intelligence (AI)</h1>
+  <p>Learn AI concepts, techniques, applications, and history interactively.</p>
+  <nav>
+    <a href="#definition"><i class="fas fa-lightbulb icon"></i>Definition</a>
+    <a href="#goals"><i class="fas fa-bullseye icon"></i>Goals</a>
+    <a href="#techniques"><i class="fas fa-cogs icon"></i>Techniques</a>
+    <a href="#modern-ai"><i class="fas fa-robot icon"></i>ModernAi Models</a>
+
+    <a href="#applications"><i class="fas fa-robot icon"></i>Applications</a>
+    <a href="#history"><i class="fas fa-history icon"></i>History</a>
+    <a href="#faq"><i class="fas fa-question icon"></i>FAQ</a>
+  </nav>
+</header>
+
+<!-- Definition Section -->
+<section id="definition">
+  <h2 class="section-title"><i class="fas fa-lightbulb icon"></i>What is AI?</h2>
+  <div class="container">
+    <div class="card p-4 mb-4 shadow-sm">
+      <p><strong>John McCarthy:</strong> “The science and engineering of making intelligent machines, especially intelligent computer programs.”</p>
+      <p>AI allows computers, robots, or software to think intelligently, like humans. It studies how humans think, learn, decide, and solve problems to develop intelligent systems.</p>
+    </div>
+    <div class="card p-4 shadow-sm">
+      <h5>Philosophy of AI</h5>
+      <p>Humans wondered, “Can a machine think and behave like humans?” AI development aims to replicate human intelligence in machines.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Goals Section -->
+<section id="goals">
+  <h2 class="section-title"><i class="fas fa-bullseye icon"></i>Goals of AI</h2>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-brain icon"></i>Create Expert Systems</h5>
+          <p>Systems that learn, demonstrate, explain, and advise users intelligently.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-robot icon"></i>Implement Human Intelligence in Machines</h5>
+          <p>Systems that understand, think, learn, and behave like humans.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI Techniques Section -->
+<section id="techniques" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title"><i class="fas fa-cogs icon"></i>AI Techniques</h2>
+  <div class="container">
+    <div class="card p-4 mb-4 shadow-sm">
+      <ul>
+        <li>Organize and use knowledge efficiently</li>
+        <li>Make knowledge understandable and modifiable</li>
+        <li>Apply knowledge even if incomplete or inaccurate</li>
+        <li>Execute complex tasks faster</li>
+      </ul>
+    </div>
+    <div class="card p-4 shadow-sm">
+      <h5>Programming With vs Without AI</h5>
+      <table class="table table-bordered text-white">
+        <thead class="table-light text-dark">
+          <tr>
+            <th>Feature</th>
+            <th>Without AI</th>
+            <th>With AI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Problem-solving</td>
+            <td>Answers specific questions</td>
+            <td>Answers generic questions</td>
+          </tr>
+          <tr>
+            <td>Program modification</td>
+            <td>Difficult, may affect structure</td>
+            <td>Easy, independent modifications</td>
+          </tr>
+          <tr>
+            <td>Learning</td>
+            <td>Static, cannot improve</td>
+            <td>Can absorb new info and improve</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Applications Section with Animated Chart -->
+<section id="applications">
+  <h2 class="section-title"><i class="fas fa-robot icon"></i>Applications of AI</h2>
+  <div class="container mb-5">
+    <canvas id="aiChart"></canvas>
+  </div>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4"><div class="card p-4 shadow-sm"><h5><i class="fas fa-gamepad icon"></i>Gaming</h5><p>AI helps in strategic games like chess, poker, and tic-tac-toe.</p></div></div>
+      <div class="col-md-4"><div class="card p-4 shadow-sm"><h5><i class="fas fa-comments icon"></i>NLP</h5><p>Allows computers to understand human language.</p></div></div>
+      <div class="col-md-4"><div class="card p-4 shadow-sm"><h5><i class="fas fa-user-tie icon"></i>Expert Systems</h5><p>Integrates machine, software, and knowledge to give reasoning and advice.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- History Section -->
+<section id="history" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title"><i class="fas fa-history icon"></i>History of AI</h2>
+  <div class="container">
+    <div class="card p-4 shadow-sm mb-4">
+      <table class="table table-bordered text-white">
+        <thead class="table-light text-dark">
+          <tr><th>Year</th><th>Milestone / Innovation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1923</td><td>First use of "robot" in Karel Čapek’s play.</td></tr>
+          <tr><td>1943</td><td>Foundations for neural networks laid.</td></tr>
+          <tr><td>1945</td><td>Isaac Asimov coined "Robotics".</td></tr>
+          <tr><td>1950</td><td>Alan Turing introduced the Turing Test.</td></tr>
+          <tr><td>1956</td><td>John McCarthy coined "Artificial Intelligence".</td></tr>
+          <tr><td>1958</td><td>LISP programming language invented.</td></tr>
+          <tr><td>1964</td><td>Danny Bobrow solved algebra problems.</td></tr>
+          <tr><td>1965</td><td>Joseph Weizenbaum built ELIZA.</td></tr>
+          <tr><td>1969</td><td>Shakey the robot developed.</td></tr>
+          <tr><td>1973</td><td>The Assembly Robotics group at Edinburgh University built Freddy, the Famous
+Scottish Robot, capable of using vision to locate and assemble models.</td></tr>
+          <tr><td>1979</td><td>The first computer-controlled autonomous vehicle, Stanford Cart, was built</td></tr>
+          <tr><td>1985</td><td>Harold Cohen created and demonstrated the drawing program, Aaron.
+</td></tr>
+          <tr><td>1990</td><td>Major advances in all areas of AI:
+ Significant demonstrations in machine learning
+ Case-based reasoning
+ Multi-agent planning
+ Scheduling
+ Data mining, Web Crawler
+ natural language understanding and translation
+ Vision, Virtual Reality
+ Games
+</td></tr>
+          <tr><td>1997</td><td>The Deep Blue Chess Program beats the then world chess champion, Garry 
+kasparavo</td></tr>
+          <tr><td>2000</td><td>Interactive robot pets become commercially available. MIT displays Kismet, a
+robot with a face that expresses emotions. The robot Nomad explores remote
+regions of Antarctica and locates meteorites.</td></tr>
+
+
+
+
+
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- Modern AI Models Section -->
+<!-- Extended AI Models Section -->
+<section id="modern-ai" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title"><i class="fas fa-robot icon"></i> Modern AI Models</h2>
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- ChatGPT -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-comments icon"></i> ChatGPT (OpenAI)</h5>
+          <p>Conversational AI model used for natural dialogue, coding help, tutoring, and creative tasks.</p>
+        </div>
+      </div>
+
+      <!-- DeepSeek -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-magnifying-glass icon"></i> DeepSeek</h5>
+          <p>Large language model designed for reasoning efficiency and enterprise-scale applications.</p>
+        </div>
+      </div>
+
+      <!-- Grok -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-brain icon"></i> Grok (xAI)</h5>
+          <p>Elon Musk’s AI, integrated with X (Twitter) for witty, real-time answers powered by live data.</p>
+        </div>
+      </div>
+
+      <!-- Gemini -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-star icon"></i> Gemini (Google DeepMind)</h5>
+          <p>Multimodal AI model processing text, code, images, and more, rivaling GPT models.</p>
+        </div>
+      </div>
+
+      <!-- Replicate -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-server icon"></i> Replicate</h5>
+          <p>Cloud platform for running and sharing AI models with APIs for developers.</p>
+        </div>
+      </div>
+
+      <!-- Veo 3 -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-video icon"></i> Veo 3 (Google)</h5>
+          <p>Advanced video generation model producing cinematic, realistic clips from text prompts.</p>
+        </div>
+      </div>
+
+      <!-- Claude -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-lightbulb icon"></i> Claude (Anthropic)</h5>
+          <p>A safe and ethical AI assistant built by Anthropic, focusing on alignment and reasoning.</p>
+        </div>
+      </div>
+
+      <!-- LLaMA -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-cube icon"></i> LLaMA (Meta)</h5>
+          <p>Open-source large language models by Meta, widely used in research and AI startups.</p>
+        </div>
+      </div>
+
+      <!-- Mistral -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-wind icon"></i> Mistral AI</h5>
+          <p>Lightweight, efficient, open-source LLMs optimized for high-speed inference.</p>
+        </div>
+      </div>
+
+      <!-- Perplexity AI -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-search icon"></i> Perplexity AI</h5>
+          <p>AI-powered search engine combining web browsing with conversational answers.</p>
+        </div>
+      </div>
+
+      <!-- GitHub Copilot -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-code icon"></i> GitHub Copilot</h5>
+          <p>An AI coding assistant built on OpenAI Codex, integrated into IDEs for developers.</p>
+        </div>
+      </div>
+
+      <!-- Sora -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-film icon"></i> Sora (OpenAI)</h5>
+          <p>Video generation AI capable of creating short, realistic clips from text descriptions.</p>
+        </div>
+      </div>
+
+      <!-- Stable Diffusion -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-paint-brush icon"></i> Stable Diffusion</h5>
+          <p>Popular open-source text-to-image model for artistic and creative content generation.</p>
+        </div>
+      </div>
+
+      <!-- MidJourney -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-image icon"></i> MidJourney</h5>
+          <p>AI art generator known for producing high-quality, surreal, and detailed artworks.</p>
+        </div>
+      </div>
+
+      <!-- DALL·E -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-camera icon"></i> DALL·E (OpenAI)</h5>
+          <p>Image generation model that creates unique visuals and edits based on text prompts.</p>
+        </div>
+      </div>
+
+      <!-- Whisper -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm">
+          <h5><i class="fas fa-microphone icon"></i> Whisper (OpenAI)</h5>
+          <p>Automatic speech recognition (ASR) model for transcribing and translating audio.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+
+
+
+
+<section id="quiz" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title"><i class="fas fa-question-circle icon"></i> AI Quiz</h2>
+  <div class="container">
+    <div id="quiz-container" class="card p-4 shadow-sm">
+      <div id="question" class="mb-4"></div>
+      <div id="options" class="list-group mb-3"></div>
+      <button id="next-btn" class="btn btn-warning w-100" disabled>Next</button>
+      <p class="mt-3 text-info" id="feedback"></p>
+      <p class="mt-3"><strong>Score: <span id="score">0</span></strong></p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <h2 class="section-title"><i class="fas fa-question icon"></i>FAQ</h2>
+  <div class="container faq">
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">What is AI?</button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">AI is the science of making machines intelligent, enabling them to think, learn, and act like humans.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">What are the main applications of AI?</button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">AI applications include gaming, NLP, expert systems, vision systems, speech and handwriting recognition, and intelligent robots.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Back to Top Button -->
+<button id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 AI Learning Notes. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Back to Top
+  window.onscroll = function() { toggleBackToTop() };
+  function toggleBackToTop() {
+    const btn = document.getElementById("backToTop");
+    btn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none";
+  }
+  function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+  // Chart.js for AI Applications
+  const ctx = document.getElementById('aiChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Gaming','NLP','Expert Systems','Vision Systems','Speech Recognition','Robots'],
+      datasets: [{
+        label: 'AI Applications',
+        data: [20,15,20,15,15,15],
+        backgroundColor: ['#ffc107','#00ffea','#ff6f61','#ffb347','#6a11cb','#2575fc'],
+        borderColor: '#111',
+        borderWidth: 2
+      }]
+    },
+    options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { color: 'white' } } } }
+  });
+
+
+  const quizData = [
+    {question: "Who is known as the father of Artificial Intelligence?", options: ["Alan Turing", "John McCarthy", "Geoffrey Hinton", "Elon Musk"], answer: "John McCarthy"},
+    {question: "Which test was proposed by Alan Turing to check machine intelligence?", options: ["Turing Test", "IQ Test", "Robotics Test", "AI Benchmark"], answer: "Turing Test"},
+    {question: "Which programming language is most popular for AI?", options: ["C", "Python", "HTML", "CSS"], answer: "Python"},
+    {question: "Which of the following is NOT a type of AI?", options: ["Narrow AI", "General AI", "Super AI", "Random AI"], answer: "Random AI"},
+    {question: "Which AI technique mimics the human brain?", options: ["Neural Networks", "Decision Trees", "Genetic Algorithms", "Linear Regression"], answer: "Neural Networks"},
+    {question: "What does NLP stand for in AI?", options: ["Natural Language Processing", "Neural Logic Program", "Network Learning Protocol", "None"], answer: "Natural Language Processing"},
+    {question: "Which AI system defeated Garry Kasparov in chess?", options: ["AlphaGo", "Deep Blue", "Watson", "GPT"], answer: "Deep Blue"},
+    {question: "What is the main goal of AI?", options: ["To replace humans", "To make machines intelligent", "To create robots", "To control data"], answer: "To make machines intelligent"},
+    {question: "Which company developed AlphaGo?", options: ["Google DeepMind", "IBM", "OpenAI", "Microsoft"], answer: "Google DeepMind"},
+    {question: "Which AI application is used in Siri and Alexa?", options: ["Computer Vision", "Speech Recognition", "Robotics", "Expert Systems"], answer: "Speech Recognition"},
+    {question: "What does ANN stand for?", options: ["Artificial Neural Network", "Advanced Numeric Network", "Automated Neural Node", "Applied Network Notation"], answer: "Artificial Neural Network"},
+    {question: "Which of these is an Expert System?", options: ["MYCIN", "Google Maps", "ChatGPT", "Excel"], answer: "MYCIN"},
+    {question: "Which branch of AI deals with vision?", options: ["Robotics", "Computer Vision", "NLP", "Expert Systems"], answer: "Computer Vision"},
+    {question: "Which of the following is an unsupervised learning algorithm?", options: ["Linear Regression", "K-Means Clustering", "Decision Tree", "Naive Bayes"], answer: "K-Means Clustering"},
+    {question: "What does ML stand for?", options: ["Machine Learning", "Modern Logic", "Memory Language", "Model Learning"], answer: "Machine Learning"},
+    {question: "Which AI system won Jeopardy in 2011?", options: ["Deep Blue", "Watson", "AlphaGo", "BERT"], answer: "Watson"},
+    {question: "Which is a type of supervised learning?", options: ["Regression", "Clustering", "PCA", "Reinforcement"], answer: "Regression"},
+    {question: "Which is used for dimensionality reduction?", options: ["PCA", "Regression", "Decision Tree", "Naive Bayes"], answer: "PCA"},
+    {question: "Which AI concept is used in self-driving cars?", options: ["Robotics", "Reinforcement Learning", "Computer Vision", "All of these"], answer: "All of these"},
+    {question: "Which search is used in AI problem solving?", options: ["DFS & BFS", "Quick Sort", "Merge Sort", "Hashing"], answer: "DFS & BFS"},
+    {question: "What is the full form of LSTM?", options: ["Long Short-Term Memory", "Limited Short-Term Model", "Learning System Task Model", "Logical Sequence Time Machine"], answer: "Long Short-Term Memory"},
+    {question: "Which of these is a reinforcement learning algorithm?", options: ["Q-Learning", "Naive Bayes", "SVM", "KNN"], answer: "Q-Learning"},
+    {question: "Which is the AI model behind ChatGPT?", options: ["Transformer", "CNN", "RNN", "Decision Tree"], answer: "Transformer"},
+    {question: "What is the main challenge in AI ethics?", options: ["Bias & Fairness", "Speed", "Memory", "Syntax"], answer: "Bias & Fairness"},
+    {question: "Which library is popular in Python for ML?", options: ["TensorFlow", "React", "Bootstrap", "Laravel"], answer: "TensorFlow"},
+    {question: "Which is used for image recognition?", options: ["CNN", "RNN", "SVM", "KNN"], answer: "CNN"},
+    {question: "Which AI model is used for language translation?", options: ["Transformer", "CNN", "K-Means", "Decision Tree"], answer: "Transformer"},
+    {question: "Which is an AI-powered chatbot by OpenAI?", options: ["ChatGPT", "Alexa", "Siri", "Cortana"], answer: "ChatGPT"},
+    {question: "Which algorithm is used in Google Maps route planning?", options: ["A* Search", "Bubble Sort", "K-Means", "Linear Regression"], answer: "A* Search"},
+    {question: "Which AI model is used in AlphaGo?", options: ["Deep Reinforcement Learning", "Decision Trees", "Naive Bayes", "Regression"], answer: "Deep Reinforcement Learning"}
+  ];
+
+  let currentQuestion = 0;
+  let score = 0;
+
+  const questionEl = document.getElementById("question");
+  const optionsEl = document.getElementById("options");
+  const nextBtn = document.getElementById("next-btn");
+  const scoreEl = document.getElementById("score");
+  const feedbackEl = document.getElementById("feedback");
+
+  function loadQuestion() {
+    const q = quizData[currentQuestion];
+    questionEl.innerHTML = `<h5>Q${currentQuestion+1}. ${q.question}</h5>`;
+    optionsEl.innerHTML = "";
+    feedbackEl.innerHTML = "";
+    q.options.forEach(option => {
+      const btn = document.createElement("button");
+      btn.className = "list-group-item list-group-item-action bg-dark text-white";
+      btn.textContent = option;
+      btn.onclick = () => selectAnswer(btn, q.answer);
+      optionsEl.appendChild(btn);
+    });
+    nextBtn.disabled = true;
+  }
+
+  function selectAnswer(btn, correctAnswer) {
+    const allBtns = optionsEl.querySelectorAll("button");
+    allBtns.forEach(b => b.disabled = true);
+    if (btn.textContent === correctAnswer) {
+      btn.classList.add("list-group-item-success");
+      feedbackEl.innerHTML = "✅ Correct!";
+      score++;
+      scoreEl.textContent = score;
+    } else {
+      btn.classList.add("list-group-item-danger");
+      feedbackEl.innerHTML = "❌ Wrong! Correct answer: " + correctAnswer;
+    }
+    nextBtn.disabled = false;
+  }
+
+  nextBtn.onclick = () => {
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+      loadQuestion();
+    } else {
+      questionEl.innerHTML = "<h5>🎉 Quiz Completed!</h5>";
+      optionsEl.innerHTML = "";
+      feedbackEl.innerHTML = "Your final score is " + score + "/" + quizData.length;
+      nextBtn.style.display = "none";
+    }
+  };
+
+  // Load first question
+  loadQuestion();
+</script>
+
+</body>
+</html>

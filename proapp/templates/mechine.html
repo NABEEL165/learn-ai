@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Learning Learning Notes</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color: white;
+  scroll-behavior: smooth;
+}
+body, p, li, h1, h2, h3, h4, h5, h6{
+  color: white !important;
+}
+header{
+  padding: 80px 20px;
+  text-align:center;
+  background: rgba(0,0,0,0.6);
+  border-bottom: 3px solid #ffc107;
+}
+header h1{
+  font-size: 3rem;
+  animation: fadeInDown 1s;
+}
+header p{
+  font-size: 1.3rem;
+  animation: fadeInUp 1s;
+  margin-bottom: 20px;
+}
+nav a{
+  margin: 0 15px;
+  color: #ffc107;
+  text-decoration: none;
+  font-weight:500;
+}
+nav a:hover{
+  color:#00ffea;
+  text-decoration: underline;
+}
+section{
+  padding: 60px 20px;
+}
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+  font-size:2.2rem;
+  color:#00ffea;
+  font-weight:bold;
+}
+.card{
+  background: rgba(255,255,255,0.05);
+  border:none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,255,234,0.5);
+}
+.icon{
+  font-size:1.8rem;
+  color:#ffc107;
+  margin-right:10px;
+}
+footer{
+  background-color:#111;
+  color:#ffc107;
+  padding:20px 0;
+  text-align:center;
+}
+#backToTop{
+  position: fixed;
+  bottom:30px;
+  right:30px;
+  display:none;
+  font-size:1.5rem;
+  background-color:#00ffea;
+  color:#111;
+  border:none;
+  padding:12px 15px;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:1000;
+}
+#backToTop:hover{
+  background-color:#ffc107;
+  color:#111;
+}
+.accordion-button{
+  background-color: rgba(0,0,0,0.3)!important;
+  color:white !important;
+}
+@keyframes fadeInDown{
+  from {opacity:0; transform:translateY(-30px);}
+  to {opacity:1; transform:translateY(0);}
+}
+@keyframes fadeInUp{
+  from {opacity:0; transform:translateY(30px);}
+  to {opacity:1; transform:translateY(0);}
+}
+.animated-card{
+  animation: fadeInUp 1s;
+}
+.workflow-step{
+  text-align:center;
+  padding:20px;
+  margin:10px;
+  border-radius:10px;
+  background: rgba(255,255,255,0.05);
+  display:inline-block;
+  min-width:150px;
+}
+.arrow{
+  font-size:2rem;
+  margin:0 10px;
+  vertical-align:middle;
+  color:#00ffea;
+}
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #0d6efd, #6610f2);
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1100;
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #6610f2, #0d6efd);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.back-btn:active {
+  transform: scale(0.95);
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <a href="/"><button class="back-btn" onclick="history.back()">⬅ Back</button></a>
+  <h1>Machine Learning (ML)</h1>
+  <p>Learn ML concepts, applications, techniques, and workflow interactively.</p>
+  <nav>
+    <a href="#definition"><i class="fas fa-lightbulb icon"></i>Definition</a>
+    <a href="#terminology"><i class="fas fa-brain icon"></i>Terminology</a>
+    <a href="#datauniverse"><i class="fas fa-globe icon"></i>Data Universe</a>
+    <a href="#workflow"><i class="fas fa-project-diagram icon"></i>Workflow</a>
+    <a href="#applications"><i class="fas fa-robot icon"></i>Applications</a>
+    <a href="#mlstats"><i class="fas fa-table icon"></i>ML vs Stats</a>
+    <a href="#faq"><i class="fas fa-question icon"></i>FAQ</a>
+  </nav>
+</header>
+
+<!-- Definition Section -->
+<section id="definition">
+  <h2 class="section-title"><i class="fas fa-lightbulb icon"></i>What is Machine Learning?</h2>
+  <div class="container">
+    <div class="card p-4 mb-4 shadow-sm">
+      <p>Machine Learning is a field of AI that allows computers to learn patterns from data, make predictions, and improve performance without explicit programming.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Terminology & Data Types -->
+<section id="terminology" style="background: rgba(255,255,255,0.05);">
+<h2 class="section-title"><i class="fas fa-brain icon"></i>Terminology & Data Types</h2>
+<div class="container">
+  <div class="row g-4">
+    <div class="col-md-6 animated-card">
+      <div class="card p-4 shadow-sm">
+        <h5>Key Terms</h5>
+        <ul>
+          <li>Machine Learning</li>
+          <li>Data Science</li>
+          <li>Data Mining</li>
+          <li>Statistical Learning</li>
+          <li>Knowledge Discovery</li>
+          <li>Pattern Discovery</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6 animated-card">
+      <div class="card p-4 shadow-sm">
+        <h5>Data Types</h5>
+        <ul>
+          <li>Text</li>
+          <li>Numbers</li>
+          <li>Images</li>
+          <li>Videos</li>
+          <li>Graphs & Tables</li>
+          <li>Transactions & Clickstreams</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Digital Data Universe -->
+<section id="datauniverse">
+<h2 class="section-title"><i class="fas fa-globe icon"></i>Digital Data Universe</h2>
+<div class="container text-center mb-5">
+<div class="row g-4">
+  <div class="col-md-4 animated-card">
+    <div class="card p-4 shadow-sm"><h5><i class="fas fa-google icon"></i>Google</h5>
+    <p><span class="counter" data-target="24000000">0</span> GB/day</p></div>
+  </div>
+  <div class="col-md-4 animated-card">
+    <div class="card p-4 shadow-sm"><h5><i class="fas fa-facebook icon"></i>Facebook</h5>
+    <p><span class="counter" data-target="10000000">0</span> Photos/hour</p></div>
+  </div>
+  <div class="col-md-4 animated-card">
+    <div class="card p-4 shadow-sm"><h5><i class="fas fa-youtube icon"></i>YouTube</h5>
+    <p><span class="counter" data-target="3600">0</span> Hours Video/sec</p></div>
+  </div>
+  <div class="col-md-4 animated-card">
+    <div class="card p-4 shadow-sm"><h5><i class="fas fa-twitter icon"></i>Twitter</h5>
+    <p><span class="counter" data-target="400000000">0</span> Tweets/day</p></div>
+  </div>
+  <div class="col-md-4 animated-card">
+    <div class="card p-4 shadow-sm"><h5><i class="fas fa-satellite icon"></i>Astronomy</h5>
+    <p>Satellite Data: Hundreds of PB</p></div>
+  </div>
+  <div class="col-md-4 animated-card">
+    <div class="card p-4 shadow-sm"><h5><i class="fas fa-server icon"></i>Digital Universe</h5>
+    <p>By 2020: 44 Zettabytes</p></div>
+  </div>
+</div>
+<canvas id="dataChart" class="mt-5" height="150"></canvas>
+</div>
+</section>
+
+<!-- ML Workflow Section -->
+<section id="workflow" style="background: rgba(255,255,255,0.05);">
+<h2 class="section-title"><i class="fas fa-project-diagram icon"></i>ML Workflow</h2>
+<div class="container text-center">
+  <div class="workflow-step">Data Collection</div>
+  <i class="fas fa-arrow-right arrow"></i>
+  <div class="workflow-step">Data Cleaning & Preprocessing</div>
+  <i class="fas fa-arrow-right arrow"></i>
+  <div class="workflow-step">Feature Engineering</div>
+  <i class="fas fa-arrow-right arrow"></i>
+  <div class="workflow-step">Model Training</div>
+  <i class="fas fa-arrow-right arrow"></i>
+  <div class="workflow-step">Prediction & Deployment</div>
+</div>
+</section>
+
+<!-- Applications Section -->
+<section id="applications">
+<h2 class="section-title"><i class="fas fa-robot icon"></i>Applications of ML</h2>
+<div class="container">
+<div class="row g-4">
+  <div class="col-md-4 animated-card">
+    <div class="card p-4 shadow-sm"><h5><i class="fas fa-envelope icon"></i>Spam Detection</h5></div>
+  </div>
+  <div class="col-md-4 animated-card">
+    <div class="card p-4 shadow-sm"><h5><i class="fas fa-credit-card icon"></i>Fraud Detection</h5></div>
+  </div>
+  <div class="col-md-4 animated-card">
+    <div class="card p-4 shadow-sm"><h5><i class="fas fa-image icon"></i>Image Recognition</h5></div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ML vs Statistics -->
+<section id="mlstats" style="background: rgba(255,255,255,0.05);">
+<h2 class="section-title"><i class="fas fa-table icon"></i>ML vs Statistics</h2>
+<div class="container">
+<table class="table table-bordered text-white">
+<thead class="table-light text-dark">
+<tr><th>Feature</th><th>Statistics</th><th>Machine Learning</th></tr>
+</thead>
+<tbody>
+<tr><td>Techniques</td><td>Linear Regression, Hypothesis Testing, ANOVA</td><td>Decision Trees, Neural Networks, SVM, Clustering</td></tr>
+<tr><td>Learning</td><td>Static</td><td>Adaptive, improves with data</td></tr>
+<tr><td>Application</td><td>Data Analysis</td><td>Predictions & Pattern Discovery</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+
+<!-- Types of ML -->
+<section id="mltypes">
+  <h2 class="section-title"><i class="fas fa-layer-group icon"></i>Types of Machine Learning</h2>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4 animated-card">
+        <div class="card p-4 shadow-sm">
+          <h5>Supervised Learning</h5>
+          <p>Uses labeled data to train models. Common tasks: regression & classification.</p>
+          <ul>
+            <li>Linear Regression</li>
+            <li>Logistic Regression</li>
+            <li>Support Vector Machines</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 animated-card">
+        <div class="card p-4 shadow-sm">
+          <h5>Unsupervised Learning</h5>
+          <p>Works on unlabeled data to find hidden patterns.</p>
+          <ul>
+            <li>K-Means Clustering</li>
+            <li>Hierarchical Clustering</li>
+            <li>Principal Component Analysis</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 animated-card">
+        <div class="card p-4 shadow-sm">
+          <h5>Reinforcement Learning</h5>
+          <p>Agent learns by trial & error using rewards and penalties.</p>
+          <ul>
+            <li>Q-Learning</li>
+            <li>Deep Q-Networks</li>
+            <li>Policy Gradient Methods</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Algorithms -->
+<section id="algorithms" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title"><i class="fas fa-cogs icon"></i>Popular Algorithms</h2>
+  <div class="container">
+    <table class="table table-bordered text-white">
+      <thead class="table-light text-dark">
+        <tr><th>Category</th><th>Algorithms</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Regression</td><td>Linear Regression, Polynomial Regression</td></tr>
+        <tr><td>Classification</td><td>Logistic Regression, Decision Trees, Random Forest, SVM</td></tr>
+        <tr><td>Clustering</td><td>K-Means, DBSCAN, Hierarchical Clustering</td></tr>
+        <tr><td>Deep Learning</td><td>Neural Networks, CNN, RNN, LSTM, Transformers</td></tr>
+        <tr><td>Reinforcement</td><td>Q-Learning, Deep Q-Learning, Policy Gradient</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Evaluation Metrics -->
+<section id="metrics">
+  <h2 class="section-title"><i class="fas fa-chart-line icon"></i>Evaluation Metrics</h2>
+  <div class="container row g-4">
+    <div class="col-md-3 animated-card">
+      <div class="card p-4 shadow-sm"><h5>Accuracy</h5><p>Ratio of correctly predicted observations to total observations.</p></div>
+    </div>
+    <div class="col-md-3 animated-card">
+      <div class="card p-4 shadow-sm"><h5>Precision</h5><p>Correct positive predictions divided by total positive predictions.</p></div>
+    </div>
+    <div class="col-md-3 animated-card">
+      <div class="card p-4 shadow-sm"><h5>Recall</h5><p>Correct positive predictions divided by total actual positives.</p></div>
+    </div>
+    <div class="col-md-3 animated-card">
+      <div class="card p-4 shadow-sm"><h5>F1-Score</h5><p>Harmonic mean of precision and recall, useful for imbalanced datasets.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Challenges -->
+<section id="challenges" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title"><i class="fas fa-exclamation-triangle icon"></i>Challenges in ML</h2>
+  <div class="container">
+    <ul>
+      <li>Data Quality and Cleaning</li>
+      <li>Overfitting & Underfitting</li>
+      <li>Model Interpretability</li>
+      <li>Bias and Fairness Issues</li>
+      <li>Scalability for Big Data</li>
+      <li>Privacy & Security Concerns</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Future -->
+<section id="future">
+  <h2 class="section-title"><i class="fas fa-rocket icon"></i>Future of Machine Learning</h2>
+  <div class="container">
+    <p>ML is evolving rapidly with advancements in:</p>
+    <ul>
+      <li>Quantum Machine Learning</li>
+      <li>Edge AI (running ML on devices)</li>
+      <li>Explainable AI (XAI)</li>
+      <li>Self-Supervised Learning</li>
+      <li>Generative AI (e.g., ChatGPT, Stable Diffusion)</li>
+    </ul>
+    <p>By 2030, ML is projected to add trillions to the global economy.</p>
+  </div>
+</section>
+
+
+<section id="quiz" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title"><i class="fas fa-question-circle icon"></i> ML Quiz</h2>
+  <div class="container">
+    <div id="quiz-container" class="card p-4 shadow-sm">
+      <div id="question" class="mb-4"></div>
+      <div id="options" class="list-group mb-3"></div>
+      <button id="next-btn" class="btn btn-warning w-100" disabled>Next</button>
+      <p class="mt-3 text-info" id="feedback"></p>
+      <p class="mt-3"><strong>Score: <span id="score">0</span></strong></p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Add more FAQs -->
+<section id="faq-more" style="background: rgba(255,255,255,0.05);">
+  <h2 class="section-title"><i class="fas fa-question-circle icon"></i>More FAQs</h2>
+  <div class="container faq">
+    <div class="accordion" id="faqAccordion2">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Is ML the same as AI?</button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+          <div class="accordion-body">No. AI is the broader concept of creating intelligent machines, while ML is a subset that focuses on learning from data.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">What are real-life ML examples?</button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+          <div class="accordion-body">Google Maps, Netflix recommendations, Fraud Detection, Face Unlock, Voice Assistants.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ Section -->
+
+
+<!-- Back to Top -->
+<button id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Footer -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Back to Top
+  window.onscroll = function() { toggleBackToTop() };
+  function toggleBackToTop() {
+    const btn = document.getElementById("backToTop");
+    btn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none";
+  }
+  function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+  // Animated Counters
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 200;
+      if(count < target){
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 15);
+      } else {
+        counter.innerText = target.toLocaleString();
+      }
+    };
+    updateCount();
+  });
+
+  // Chart.js for Data Universe
+  const ctxData = document.getElementById('dataChart').getContext('2d');
+  new Chart(ctxData, {
+    type: 'bar',
+    data: {
+      labels: ['Google','Facebook','YouTube','Twitter','Astronomy'],
+      datasets:[{label:'Data Created',data:[24,10,1,400,100],
+      backgroundColor:['#ffc107','#00ffea','#ff6f61','#ffb347','#6a11cb']}]
+    },
+    options:{responsive:true,plugins:{legend:{display:false}},
+      scales:{y:{beginAtZero:true,title:{display:true,text:'Data Volume (PB/day)'}}}
+    }
+  });
+
+
+
+
+   const quizData = [
+    {question: "Who is considered the father of Machine Learning?", options: ["Arthur Samuel", "Alan Turing", "Geoffrey Hinton", "Yann LeCun"], answer: "Arthur Samuel"},
+    {question: "Which type of learning uses labeled data?", options: ["Supervised", "Unsupervised", "Reinforcement", "Deep Learning"], answer: "Supervised"},
+    {question: "Which algorithm is used for classification?", options: ["Logistic Regression", "K-Means", "PCA", "DBSCAN"], answer: "Logistic Regression"},
+    {question: "What does SVM stand for?", options: ["Simple Vector Machine", "Support Vector Machine", "Statistical Variable Model", "Systematic Value Method"], answer: "Support Vector Machine"},
+    {question: "Which clustering method is most popular?", options: ["K-Means", "Linear Regression", "Decision Tree", "Naive Bayes"], answer: "K-Means"},
+    {question: "Which algorithm is mainly used for spam detection?", options: ["Naive Bayes", "K-Means", "PCA", "CNN"], answer: "Naive Bayes"},
+    {question: "Which ML type is used in recommendation systems?", options: ["Supervised", "Unsupervised", "Reinforcement", "Clustering"], answer: "Unsupervised"},
+    {question: "What is overfitting?", options: ["Model performs well on training but poorly on test data", "Model performs well everywhere", "Model underlearns", "None"], answer: "Model performs well on training but poorly on test data"},
+    {question: "Which is a dimensionality reduction technique?", options: ["PCA", "SVM", "Random Forest", "CNN"], answer: "PCA"},
+    {question: "Which library is most used in ML with Python?", options: ["Scikit-learn", "NumPy", "Flask", "Django"], answer: "Scikit-learn"},
+    {question: "What does CNN stand for?", options: ["Convolutional Neural Network", "Central Neural Network", "Core Node Network", "Cluster Neural Network"], answer: "Convolutional Neural Network"},
+    {question: "Which algorithm is tree-based?", options: ["Decision Tree", "Logistic Regression", "SVM", "PCA"], answer: "Decision Tree"},
+    {question: "Which is an ensemble method?", options: ["Random Forest", "Linear Regression", "Naive Bayes", "KNN"], answer: "Random Forest"},
+    {question: "What does K in KNN stand for?", options: ["Knowledge", "Kernal", "K-means", "Neighbors"], answer: "Neighbors"},
+    {question: "Which reinforcement learning method is popular?", options: ["Q-Learning", "PCA", "Regression", "Clustering"], answer: "Q-Learning"},
+    {question: "Which metric is useful for imbalanced datasets?", options: ["F1 Score", "Accuracy", "RMSE", "MSE"], answer: "F1 Score"},
+    {question: "Which activation function is widely used in deep learning?", options: ["ReLU", "Sigmoid", "Tanh", "All of the above"], answer: "All of the above"},
+    {question: "What does LSTM stand for?", options: ["Long Short-Term Memory", "Large Sample Training Model", "Linear Sequential Time Machine", "Low Scale Training Model"], answer: "Long Short-Term Memory"},
+    {question: "Which ML approach mimics the human brain?", options: ["Neural Networks", "Regression", "Clustering", "Decision Trees"], answer: "Neural Networks"},
+    {question: "Which algorithm is non-parametric?", options: ["KNN", "Linear Regression", "Logistic Regression", "Naive Bayes"], answer: "KNN"},
+    {question: "Which ML type uses trial & error?", options: ["Reinforcement Learning", "Supervised Learning", "Unsupervised Learning", "Deep Learning"], answer: "Reinforcement Learning"},
+    {question: "Which optimization method is common in ML?", options: ["Gradient Descent", "Divide & Conquer", "Greedy Search", "BFS"], answer: "Gradient Descent"},
+    {question: "Which ML model is used for stock market prediction?", options: ["Time Series Models", "Clustering", "Decision Tree", "Naive Bayes"], answer: "Time Series Models"},
+    {question: "Which ML type is used in face recognition?", options: ["Supervised", "Unsupervised", "Reinforcement", "Deep Learning"], answer: "Deep Learning"},
+    {question: "What does bias in ML mean?", options: ["Error due to wrong assumptions", "Error due to variance", "Overfitting", "All"], answer: "Error due to wrong assumptions"},
+    {question: "Which ML approach powers chatbots?", options: ["NLP", "Clustering", "Regression", "Decision Trees"], answer: "NLP"},
+    {question: "Which algorithm is used for anomaly detection?", options: ["Isolation Forest", "K-Means", "Logistic Regression", "Naive Bayes"], answer: "Isolation Forest"},
+    {question: "Which type of ML is Google Translate based on?", options: ["NLP with Deep Learning", "Supervised", "Reinforcement", "Clustering"], answer: "NLP with Deep Learning"},
+    {question: "Which technique prevents overfitting?", options: ["Regularization", "Overtraining", "Batching", "Noise"], answer: "Regularization"},
+    {question: "Which framework is popular for deep learning?", options: ["TensorFlow", "Flask", "Django", "React"], answer: "TensorFlow"}
+  ];
+
+  let currentQuestion = 0;
+  let score = 0;
+
+  const questionEl = document.getElementById("question");
+  const optionsEl = document.getElementById("options");
+  const nextBtn = document.getElementById("next-btn");
+  const scoreEl = document.getElementById("score");
+  const feedbackEl = document.getElementById("feedback");
+
+  function loadQuestion() {
+    const q = quizData[currentQuestion];
+    questionEl.innerHTML = `<h5>${q.question}</h5>`;
+    optionsEl.innerHTML = "";
+    feedbackEl.innerHTML = "";
+    q.options.forEach(option => {
+      const btn = document.createElement("button");
+      btn.className = "list-group-item list-group-item-action bg-dark text-white";
+      btn.textContent = option;
+      btn.onclick = () => selectAnswer(btn, q.answer);
+      optionsEl.appendChild(btn);
+    });
+    nextBtn.disabled = true;
+  }
+
+  function selectAnswer(btn, correctAnswer) {
+    const allBtns = optionsEl.querySelectorAll("button");
+    allBtns.forEach(b => b.disabled = true);
+    if (btn.textContent === correctAnswer) {
+      btn.classList.add("list-group-item-success");
+      feedbackEl.innerHTML = "✅ Correct!";
+      score++;
+      scoreEl.textContent = score;
+    } else {
+      btn.classList.add("list-group-item-danger");
+      feedbackEl.innerHTML = "❌ Wrong! Correct answer: " + correctAnswer;
+    }
+    nextBtn.disabled = false;
+  }
+
+  nextBtn.onclick = () => {
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+      loadQuestion();
+    } else {
+      questionEl.innerHTML = "<h5>🎉 Quiz Completed!</h5>";
+      optionsEl.innerHTML = "";
+      feedbackEl.innerHTML = "Your final score is " + score + "/" + quizData.length;
+      nextBtn.style.display = "none";
+    }
+  };
+
+  // Load first question
+  loadQuestion();
+</script>
+</body>
+</html>

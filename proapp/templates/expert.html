@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Career Path to AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #121212;
+      color: #f1f1f1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+    .card {
+      background-color: #1e1e1e;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+      transform: translateY(40px);
+      opacity: 0;
+      transition: all 0.6s ease-in-out;
+    }
+    .card.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0px 6px 25px rgba(0, 196, 255, 0.5);
+    }
+    .card h5 {
+      color: #00c4ff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card p, .card li {
+      color: #ddd;
+    }
+    .title {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #00c4ff;
+      text-shadow: 0px 0px 15px rgba(0, 196, 255, 0.7);
+      opacity: 0;
+      transform: translateY(-30px);
+      transition: all 0.8s ease-in-out;
+    }
+    .title.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🚀 Career Path to AI</h1>
+
+    <!-- Step 1 -->
+    <div class="card p-4">
+      <h5><i class="fas fa-calculator"></i> 1. Strengthen Your Foundations</h5>
+      <ul>
+        <li><b>Math Basics:</b> Linear algebra, probability, and statistics.</li>
+        <li><b>Programming:</b> Python is the AI language king.</li>
+        <li><b>Libraries:</b> NumPy, Pandas, Matplotlib.</li>
+      </ul>
+      <p>👉 Resource: <i>Khan Academy</i> for math, <i>Python Crash Course</i> (book/video).</p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="card p-4">
+      <h5><i class="fas fa-brain"></i> 2. Core AI / ML Learning</h5>
+      <ul>
+        <li><b>Machine Learning:</b> Supervised & Unsupervised Learning.</li>
+        <li><b>Deep Learning:</b> Neural Networks, CNNs, RNNs, Transformers.</li>
+        <li><b>Key Libraries:</b> Scikit-Learn, TensorFlow, PyTorch.</li>
+      </ul>
+      <p>👉 Resource: Andrew Ng’s ML course (Coursera), Deep Learning Specialization.</p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="card p-4">
+      <h5><i class="fas fa-code"></i> 3. Practical Projects (Portfolio Building)</h5>
+      <p><b>Start small:</b></p>
+      <ul>
+        <li>Predict house prices (ML regression).</li>
+        <li>Movie/Book recommender system.</li>
+        <li>Chatbot with NLP.</li>
+      </ul>
+      <p><b>Then go bigger:</b></p>
+      <ul>
+        <li>AI for e-commerce (product recommendation, fraud detection).</li>
+        <li>AI + Web: integrate ML models into websites/apps.</li>
+      </ul>
+      <p>👉 Use GitHub to showcase all projects.</p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="card p-4">
+      <h5><i class="fas fa-layer-group"></i> 4. Specialize in an AI Domain</h5>
+      <ul>
+        <li>AI in Business (finance, marketing, HR, operations).</li>
+        <li>Computer Vision (image recognition, medical imaging).</li>
+        <li>NLP (chatbots, summarization, translation).</li>
+        <li>AI + Web Dev (smart apps, recommendation systems).</li>
+      </ul>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="card p-4">
+      <h5><i class="fas fa-briefcase"></i> 5. Career Opportunities</h5>
+      <p><b>Entry Level:</b></p>
+      <ul>
+        <li>AI Intern</li>
+        <li>Data Analyst</li>
+        <li>Junior ML Engineer</li>
+        <li>Business Analyst (AI focus)</li>
+      </ul>
+      <p><b>Growth:</b></p>
+      <ul>
+        <li>ML Engineer</li>
+        <li>AI Research Engineer</li>
+        <li>AI Product Manager</li>
+        <li>AI Consultant</li>
+      </ul>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="card p-4">
+      <h5><i class="fas fa-certificate"></i> 6. Certifications That Add Value</h5>
+      <ul>
+        <li>Google TensorFlow Developer Certificate</li>
+        <li>Microsoft Azure AI Fundamentals</li>
+        <li>IBM AI Engineering (Coursera)</li>
+        <li>AWS Machine Learning Specialty</li>
+      </ul>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="card p-4">
+      <h5><i class="fas fa-gem"></i> 7. Your Unique Advantage (BBA + Web Dev + AI)</h5>
+      <ul>
+        <li>Build AI-powered business apps.</li>
+        <li>Blend business + technology understanding.</li>
+        <li>Example niche: AI for e-commerce, finance, HR tech, travel platforms.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Reveal elements smoothly on scroll
+    const cards = document.querySelectorAll(".card");
+    const title = document.querySelector(".title");
+
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.9;
+      cards.forEach(card => {
+        const boxTop = card.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          card.classList.add("show");
+        }
+      });
+      if (title.getBoundingClientRect().top < window.innerHeight * 0.8) {
+        title.classList.add("show");
+      }
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
+</body>
+</html>

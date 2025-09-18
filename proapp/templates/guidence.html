@@ -1,0 +1,207 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 AI Career Path</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 🌙 Dark Theme */
+    body {
+      background: #0a0f1f;
+      color: #eaeaea;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+      color: #00eaff;
+      text-shadow: 0 0 10px #00eaff;
+    }
+
+    /* ✨ Neon Glassy Cards */
+    .card {
+      background: rgba(246, 246, 248, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 234, 255, 0.3);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 25px;
+      transition: 0.4s ease;
+      box-shadow: 0 0 15px rgba(0, 234, 255, 0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 0 25px rgba(0, 234, 255, 0.6);
+      border-color: #00eaff;
+    }
+
+    .step-number {
+      font-size: 2rem;
+      color: #ff4081;
+      text-shadow: 0 0 10px #ff4081;
+    }
+
+    /* 🌌 Typing Animation */
+    .typing {
+      color: #ff4081;
+      font-weight: bold;
+      border-right: 2px solid #ff4081;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: typing 4s steps(30, end), blink 0.8s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* 🔥 Scroll Reveal */
+    .hidden {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #00eaff;
+      color: #0a0f1f;
+      border: none;
+      border-radius: 50%;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 18px;
+      display: none;
+      box-shadow: 0 0 15px #00eaff;
+      transition: 0.3s;
+    }
+
+    #backToTop:hover {
+      background: #ff4081;
+      box-shadow: 0 0 25px #ff4081;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+    <h1 class="typing">🚀 Career Path to AI</h1>
+
+    <div class="card hidden">
+      <h2><span class="step-number">1.</span> Strengthen Your Foundations</h2>
+      <ul>
+        <li>Math Basics: Linear algebra, probability, statistics.</li>
+        <li>Programming: Python (NumPy, Pandas, Matplotlib).</li>
+        <li><strong>Resource:</strong> Khan Academy, Python Crash Course.</li>
+      </ul>
+    </div>
+
+    <div class="card hidden">
+      <h2><span class="step-number">2.</span> Core AI / ML Learning</h2>
+      <ul>
+        <li>Machine Learning: Supervised & Unsupervised.</li>
+        <li>Deep Learning: CNNs, RNNs, Transformers.</li>
+        <li>Libraries: Scikit-Learn, TensorFlow, PyTorch.</li>
+        <li><strong>Resource:</strong> Andrew Ng’s ML Course, Deep Learning Specialization.</li>
+      </ul>
+    </div>
+
+    <div class="card hidden">
+      <h2><span class="step-number">3.</span> Practical Projects</h2>
+      <ul>
+        <li>Small: House price prediction, recommender system, chatbot.</li>
+        <li>Bigger: AI for e-commerce, AI + Web integration.</li>
+        <li><strong>Tip:</strong> Upload projects to GitHub portfolio.</li>
+      </ul>
+    </div>
+
+    <div class="card hidden">
+      <h2><span class="step-number">4.</span> Specialize</h2>
+      <ul>
+        <li>Business AI: Finance, marketing, HR.</li>
+        <li>Computer Vision: Image recognition, medical imaging.</li>
+        <li>NLP: Chatbots, summarization, translation.</li>
+        <li>AI + Web Dev: Smart apps, recommendation systems.</li>
+      </ul>
+    </div>
+
+    <div class="card hidden">
+      <h2><span class="step-number">5.</span> Career Opportunities</h2>
+      <ul>
+        <li>Entry: AI Intern, Data Analyst, Junior ML Engineer.</li>
+        <li>Growth: ML Engineer, AI Consultant, Product Manager.</li>
+      </ul>
+    </div>
+
+    <div class="card hidden">
+      <h2><span class="step-number">6.</span> Certifications</h2>
+      <ul>
+        <li>Google TensorFlow Developer</li>
+        <li>Microsoft Azure AI Fundamentals</li>
+        <li>IBM AI Engineering (Coursera)</li>
+        <li>AWS ML Specialty</li>
+      </ul>
+    </div>
+
+    <div class="card hidden">
+      <h2><span class="step-number">7.</span> Unique Advantage</h2>
+      <p>BBA + Web Dev + AI = Build AI-powered business apps. Companies love business + tech combo.</p>
+    </div>
+
+    <div class="card hidden">
+      <h2><span class="step-number">8.</span> Global Community 🌍</h2>
+      <p>Connect with AI enthusiasts worldwide. Join AI clubs, Discord, Kaggle, and collaborate on real-world projects.</p>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button id="backToTop">↑</button>
+
+  <script>
+    // Scroll Reveal
+    const hiddenElements = document.querySelectorAll('.hidden');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    hiddenElements.forEach(el => observer.observe(el));
+
+    // Back to Top Button
+    const backToTop = document.getElementById("backToTop");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    };
+    backToTop.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>
+
+</body>
+</html>
